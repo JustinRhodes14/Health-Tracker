@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">wrkOut</string>
+    <string name="weight_input">Weight</string>
+    <string name="string_input">First and Last Name</string>
+    <string name="height_input">Height</string>
+    <string name="age_input">Age</string>
+    <string name="button2">Add Exercise</string>
+</resources>
