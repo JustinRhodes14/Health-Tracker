@@ -64,8 +64,8 @@ public class personInfo {
         return this.healthScale;
     }
 
-    public void addExcercise(String name,int intensity,int excerciseType) {
-        excerName temp = new excerName(name,intensity,excerciseType);
+    public void addExcercise(String name,int intensity,int excerciseType,int reps) {
+        excerName temp = new excerName(name,intensity,excerciseType,reps);
         excercises.add(temp);
         bodyMap[excerciseType] = (intensity/10) * excercises.size();
     }
