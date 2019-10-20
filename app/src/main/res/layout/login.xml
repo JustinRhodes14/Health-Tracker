@@ -48,7 +48,7 @@
         android:layout_height="200dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:src="" />
+        android:src="@drawable/yes" />
 
     <EditText
         android:id="@+id/editText2"
