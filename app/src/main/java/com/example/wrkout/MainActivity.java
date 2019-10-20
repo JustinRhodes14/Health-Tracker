@@ -62,7 +62,25 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    public int computeWorkout(String work) {
+        if (work.equals("Chest".toLowerCase())) {
+            return 1;
+        } else if (work.equals("Shoulders".toLowerCase())) {
+            return 2;
+        } else if (work.equals("Biceps".toLowerCase())) {
+            return 3;
+        } else if (work.equals("Legs".toLowerCase())) {
+            return 4;
+        } else if (work.equals("Abs".toLowerCase())) {
+            return 5;
+        } else if (work.equals("Neck".toLowerCase())) {
+            return 6;
+        } else if (work.equals("Back".toLowerCase())) {
+            return 7;
+        } else  {
+            return 8;
+        }
+    }
     private void setupViews() {
 
         exName.addTextChangedListener(txtWatcher);
@@ -78,10 +96,14 @@ public class MainActivity extends AppCompatActivity {
                 String inputtedex = exName.getText().toString().trim();
                 String inputtedintens = intens.getText().toString().trim();
                String inputtedreps = reps.getText().toString().trim();
-
-                person.addExcercise(inputtedex,Integer.parseInt(inputtedintens), 1, Integer.parseInt(inputtedreps));
+               String inputtedworkTp = exType.getText().toString().trim();
+                person.addExcercise(inputtedex,Integer.parseInt(inputtedintens), computeWorkout(inputtedworkTp), Integer.parseInt(inputtedreps));
                 person.updateReps(Integer.parseInt(inputtedreps));
-
+                exName.setText("");
+                exType.setText("");
+                intens.setText("");
+                reps.setText("");
+                bInit.setEnabled(false);
                 Toast.makeText(MainActivity.this, "Added " + person.getExercise(0).getName() +  "!", Toast.LENGTH_LONG).show();
             }
         });
