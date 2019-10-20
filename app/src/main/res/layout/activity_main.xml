@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/string_input" />
@@ -82,6 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/exerName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/age_input" />
@@ -99,6 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/exerType">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/weight_input" />
@@ -116,6 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/intens">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/height_input" />

@@ -11,7 +11,7 @@ public class personInfo {
     private int minutes;
     private double healthScale;
     private double[] bodyMap;
-    private ArrayList<excerName> excercises = new ArrayList<excerName>();
+    private ArrayList<excerName> exercises = new ArrayList<excerName>();
 
     public personInfo(String name, int age, double weight, double height) {
         this.name = name;
@@ -66,8 +66,16 @@ public class personInfo {
 
     public void addExcercise(String name,int intensity,int excerciseType,int reps) {
         excerName temp = new excerName(name,intensity,excerciseType,reps);
-        excercises.add(temp);
-        bodyMap[excerciseType] = (intensity/10) * excercises.size();
+        exercises.add(temp);
+        bodyMap[excerciseType] = (intensity/10) * exercises.size();
+    }
+
+    public excerName getExercise(int i) {
+        return exercises.get(i);
+    }
+
+    public int exerSize() {
+        return exercises.size();
     }
 
 }

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Hello,</string>
+    <string name="app_name">Hello, Justin</string>
     <string name="weight_input">Intensity</string>
-    <string name="string_input">Excercise Name</string>
+    <string name="string_input">Exercise Name</string>
     <string name="height_input">Reps</string>
-    <string name="age_input">Excercise Type</string>
-    <string name="button2">Add Excercise</string>
+    <string name="age_input">Exercise Type</string>
+    <string name="button2">Add Exercise</string>
 </resources>

@@ -13,4 +13,8 @@ public class excerName {
         this.intensity = intensity;
         this.excerciseType = excerciseType;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

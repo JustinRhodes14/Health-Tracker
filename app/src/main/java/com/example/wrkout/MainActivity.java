@@ -14,12 +14,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private Button bInit;
-    private EditText exName;
-    private EditText exType;
-    private EditText intens;
-    private EditText reps;
 
+    public Button bInit;
+    public EditText exName;
+    public EditText exType;
+    public EditText intens;
+    public EditText reps;
+    public personInfo person = new personInfo("Justin Rhodes",19,148,72.5);
 
     private TextWatcher txtWatcher = new TextWatcher() {
         @Override
@@ -31,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             String inputtedexer = exName.getText().toString().trim();
-            String inputtedexTp = exType.getText().toString().trim();
-            String inputtedInten = intens.getText().toString().trim();
-            String inputtedRep = reps.getText().toString().trim();
-            boolean enable = inputtedexer.length() != 0 && inputtedexTp.length() != 0 && inputtedInten.length() != 0 && inputtedRep.length() != 0;
+            String inputtedextp = exType.getText().toString().trim();
+            String inputtedintens = intens.getText().toString().trim();
+            String inputtedrep = reps.getText().toString().trim();
+            boolean enable = inputtedexer.length() != 0 && inputtedextp.length() != 0 && inputtedintens.length() != 0 && inputtedrep.length() != 0;
 
             bInit.setEnabled(enable);
         }
@@ -49,13 +50,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        exName = findViewById(R.id.exerName);
-        exType = findViewById(R.id.exerType);
-        intens = findViewById(R.id.intens);
-        reps = findViewById(R.id.reps);
+        exName = findViewById(R.id.edit1);
+        exType = findViewById(R.id.edit2);
+        intens = findViewById(R.id.edit3);
+        reps = findViewById(R.id.edit4);
         bInit = findViewById(R.id.button2);
 
         bInit.setEnabled(false);
+
+        setupViews();
 
 
     }
@@ -72,35 +75,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String inputteduserID = exName.getText().toString().trim();
-                String inputtedpassID = exType.getText().toString().trim();
-                String inputteduserID = intens.getText().toString().trim();
-                String inputtedpassID = reps.getText().toString().trim();
+                String inputtedex = exName.getText().toString().trim();
+                String inputtedintens = intens.getText().toString().trim();
+               String inputtedreps = reps.getText().toString().trim();
 
-                LoginManager loginManager = new LoginManager(inputteduserID, inputtedpassID, new LoginListener() {
-                    @Override
-                    public void onLoginSuccess(String name, String cardNum, ArrayList<Transaction> transactions) {
+                person.addExcercise(inputtedex,Integer.parseInt(inputtedintens), 1, Integer.parseInt(inputtedreps));
+                person.updateReps(Integer.parseInt(inputtedreps));
 
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-
-                        Intent intent = new Intent(LoginActivity.this, SummaryActivity.class);
-                        intent.putExtra("customer", name);
-                        intent.putExtra("lastFour", cardNum);
-                        intent.putExtra("transactions", transactions);
-
-                        startActivity(intent);
-
-                    }
-
-                    @Override
-                    public void onLoginError(Exception exception) {
-
-                        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-
-                loginManager.execute();
+                Toast.makeText(MainActivity.this, "Added " + person.getExercise(0).getName() +  "!", Toast.LENGTH_LONG).show();
             }
         });
 
